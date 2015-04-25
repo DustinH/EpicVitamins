@@ -1,0 +1,15 @@
+﻿@model EpicVitamins.Models.Order
+@using EpicVitamins.Models;
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+@Model.OrderID
+
+
+@foreach(OrderDetail detail in Model.OrderDetails)
+{
+    @detail.Description
+}

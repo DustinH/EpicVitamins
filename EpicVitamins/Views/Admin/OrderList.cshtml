@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Order>
+@using EpicVitamins.Models
+@{
+    ViewBag.Title = "OrderList";
+}
+<h2>OrderList</h2>
+
+<table>
+    <thead>
+        <tr>Order ID</tr>
+        <tr>Name</tr>
+    </thead>
+
+    @foreach (var order in Model)
+    {
+        <tr>
+            <td>@order.OrderID</td>
+            <td>@order.FirstName @order.LastName</td>
+            <td><a href="@Url.Action("Details", "Admin", new { id = order.OrderID })">Detail</a></td>
+        </tr>
+    }
+
+    @foreach (Order a in Model.Take(1))
+    {
+        <hr />
+        <div>
+            <label>First Name</label>
+            @Html.TextBoxFor(b => a.FirstName);
+        </div>
+    }
+
+
+
+</table>
